@@ -10,7 +10,7 @@
 	  {
 		"name": "Thibault Cohen",
 		"email": "thibault.cohen@savoirfairelinux.com"
-	  },
+	  }
 	],
 	"repository": "https://github.com/savoirfairelinux/pack-linux-system-collectd.git",
 	"keywords": [

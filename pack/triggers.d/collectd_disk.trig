@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
 import re
+exit_code_output = {0: 'OK',
+                    1: 'WARNING',
+                    2: 'CRITICAL',
+                    3: 'UNKNOWN',
+                   }
+
+
 exit_code = 0
 # Get perfs
 metrics = allperfs(self)
@@ -42,10 +49,10 @@ for disk in disk_names:
             continue
 
         # Prepare output
-        outputs.append( "%(disk)s_%(name)s=%(data_written)0.2f:%(data_read)0.2f(s/s) - " % data)
+        #outputs.append( "%(disk)s_%(name)s=%(data_written)0.2f:%(data_read)0.2f(s/s) - " % data)
 
 # Set ouput
 perf_data = " ".join(perf_datas)
-output = " # ".join(outputs)
-output = "Stats (written:read) # " + output
+output = 'Disk stats %s' % ", ".join(outputs)
+output = " - ".join((exit_code_output[exit_code], output))
 set_value(self, output, perf_data, exit_code)

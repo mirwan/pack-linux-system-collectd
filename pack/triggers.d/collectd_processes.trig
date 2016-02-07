@@ -35,7 +35,7 @@ max_crit = self.host.customs.get('_PROCESS_%s_MAX_CRIT' % process_name, None)
 perfs_list = ['ps_data', 'ps_code', 'ps_pagefaults_0', 'ps_pagefaults_1', 'ps_count_0', 'ps_count_1', 'ps_vm', 'ps_stacksize', 'ps_disk_ops_0', 'ps_disk_ops_1', 'ps_rss', 'ps_cputime_0', 'ps_cputime_1', 'ps_disk_octets_0', 'ps_disk_octets_1']
 for perf2get in perfs_list:
     thisperf = perf(self, perf2get)
-    data[perf2get] = None if thisperf is None else float(thisperf)
+    data[perf2get] = 0 if thisperf is None else float(thisperf)
 
 
 # Transform threshold

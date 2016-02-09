@@ -17,7 +17,7 @@ crit = self.host.customs.get('_LOAD_CRIT', None)
 if not crit is None:
     (data['crit_1'],
      data['crit_5'],
-     data['crit_15']) = [float(x) for x in warn.split(",")]
+     data['crit_15']) = [float(x) for x in crit.split(",")]
 
 # Get perfs
 # TODO: Check why load-_0 and not load_0

@@ -133,9 +133,12 @@ for df in df_names:
     #    outputs.append(tmp_output)
     perf_datas.append(tmp_perf_data)
 
-exit_code = max(exit_codes)
-output = "\n".join(outputs)
-output = "Disk spaces: " + exit_code_output[exit_code] + '\n' + output
-perf_data = " ".join(perf_datas)
-# Set ouput
-set_value(self, output, perf_data, exit_code)
+if len(exit_codes) == 0:
+    exit_code = 3
+    set_value(self, None, None, exit_code)
+else:
+    exit_code = max(exit_codes)
+    output = "\n".join(outputs)
+    output = "Disk spaces: " + exit_code_output[exit_code] + '\n' + output
+    perf_data = " ".join(perf_datas)
+    set_value(self, output, perf_data, exit_code)
